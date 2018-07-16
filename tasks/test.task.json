@@ -1,0 +1,13 @@
+{
+  "name": "buildBeerpolyTask",
+  "require": [],
+  "reducer": "fifo",
+  "script": {
+    "commands": [{
+      "command": "mkdir",
+      "args": [
+        "ttt123"
+      ]
+    }]
+  }
+}
