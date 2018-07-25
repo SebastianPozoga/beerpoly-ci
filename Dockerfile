@@ -26,8 +26,8 @@ RUN gem install sass
 RUN go get -u github.com/m3ng9i/ran
 
 # Add config
-COPY config/slots /go/src/github.com/goatcms/webslots/config/
-COPY config/tasks /go/src/github.com/goatcms/webslots/config/
+COPY config/slots /go/src/github.com/goatcms/webslots/config/slots
+COPY config/tasks /go/src/github.com/goatcms/webslots/config/tasks
 
 # entrypoint
 COPY beerpoly-entrypoint.sh "/go/src/github.com/goatcms/webslots/docker/beerpoly-entrypoint.sh"
