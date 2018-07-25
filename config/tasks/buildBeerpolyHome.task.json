@@ -1,0 +1,11 @@
+{
+  "name": "buildBeerpolyHomeTask",
+  "entrypoint": true,
+  "extends": ["cloneBeerpolyHomeTask"],
+  "locks": ["beerpolyHome:deploy"],
+  "executor": "onlylast",
+  "trigger": ["deployBeerpolyHomeTask"],
+  "script": {
+    "commands": []
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "cloneBeerpolyHomeTask",
+  "entrypoint": false,
+  "extends": [],
+  "locks": ["beerpolyHome:archive:lock", "beerpolyHome:deploy:lock"],
+  "executor": "fifo",
+  "script": {
+    "commands": [{
+      "command": "sh",
+      "args": ["-x", "config/tasks/cloneBeerpolyHome.sh"]
+    }]
+  }
+}

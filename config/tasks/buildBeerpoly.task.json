@@ -1,0 +1,18 @@
+{
+  "name": "buildBeerpolyTask",
+  "entrypoint": true,
+  "extends": ["cloneBeerpolyTask"],
+  "locks": ["beerpoly:archive", "beerpoly:deploy"],
+  "executor": "onlylast",
+  "trigger": ["deployBeerpolyTask", "archiveBeerpolyTask"],
+  "script": {
+    "cwd": "data/code/beerpoly",
+    "commands": [{
+      "command": "npm ",
+      "args": ["install"]
+    }, {
+      "command": "npm",
+      "args": ["run", "build:production"]
+    }]
+  }
+}

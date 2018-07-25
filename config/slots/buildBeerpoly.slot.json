@@ -1,6 +1,5 @@
 {
   "name": "buildBeerpoly",
   "secret": [],
-  "resources": ["beerpolycode"],
   "task": "buildBeerpolyTask"
 }

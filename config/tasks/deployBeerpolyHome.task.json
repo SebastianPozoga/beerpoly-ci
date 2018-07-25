@@ -1,0 +1,22 @@
+{
+  "name": "deployBeerpolyHomeTask",
+  "entrypoint": true,
+  "extends": [],
+  "locks": ["beerpolyHome:deploy", "beerpolyHome:archive"],
+  "executor": "onlylast",
+  "script": {
+    "commands": [{
+      "command": "mkdir",
+      "args": ["-p", "data/serve/beerpoly-home/"]
+    }, {
+      "command": "rm",
+      "args": ["-rf", "data/serve/beerpoly-home/*"]
+    }, {
+      "command": "cp",
+      "args": ["-R", "data/code/beerpoly-home/", "data/serve/beerpoly-home/"]
+    }, {
+      "command": "rm",
+      "args": ["-rf", "data/serve/beerpoly-home/.git"]
+    }]
+  }
+}

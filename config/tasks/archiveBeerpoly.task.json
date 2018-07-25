@@ -1,0 +1,16 @@
+{
+  "name": "archiveBeerpolyTask",
+  "entrypoint": true,
+  "extends": [],
+  "locks": ["beerpoly:archive"],
+  "executor": "fifo",
+  "script": {
+    "commands": [{
+      "command": "mkdir",
+      "args": ["-p", "data/archive"]
+    }, {
+      "command": "sh",
+      "args": ["-x", "config/tasks/archiveBeerpolyHome.sh"]
+    }]
+  }
+}

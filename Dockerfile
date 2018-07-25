@@ -1,17 +1,12 @@
 FROM goatcms/webslots
 RUN apt-get update
 
-# ruby
-RUN apt-get install -y ruby-full
+# build tools (for npm addons etc)
+RUN apt-get install -y build-essential
 
-# nodejs install
-RUN \
-  git clone https://github.com/nodejs/node.git node && \
-  cd node && \
-  git checkout v8.3.0 && \
-  ./configure && make && make install \
-  cd .. \
-  rm -rf node
+# nodejs
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN apt-get install -y nodejs
 
 # nodejs packages and upgread
 RUN \
@@ -21,13 +16,21 @@ RUN \
   npm install -g bower && \
   npm install -g yarn
 
+# ruby
+RUN apt-get install -y ruby-full
+
 # sass install
 RUN gem install sass
 
+# RAN static file server
+RUN go get -u github.com/m3ng9i/ran
+
 # Add config
-COPY slots /go/src/github.com/goatcms/webslots/config/
-COPY tasks /go/src/github.com/goatcms/webslots/config/
+COPY config/slots /go/src/github.com/goatcms/webslots/config/
+COPY config/tasks /go/src/github.com/goatcms/webslots/config/
 
 # entrypoint
-ENTRYPOINT ["/go/src/github.com/goatcms/webslots/docker/entrypoint.sh"]
+COPY beerpoly-entrypoint.sh "/go/src/github.com/goatcms/webslots/docker/beerpoly-entrypoint.sh"
+RUN chmod +x "/go/src/github.com/goatcms/webslots/docker/beerpoly-entrypoint.sh"
+ENTRYPOINT ["/go/src/github.com/goatcms/webslots/docker/beerpoly-entrypoint.sh"]
 CMD []

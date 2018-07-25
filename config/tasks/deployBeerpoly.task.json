@@ -1,0 +1,19 @@
+{
+  "name": "deployBeerpolyTask",
+  "entrypoint": true,
+  "extends": [],
+  "locks": ["beerpoly:deploy", "beerpoly:archive"],
+  "executor": "onlylast",
+  "script": {
+    "commands": [{
+      "command": "mkdir",
+      "args": ["-p", "data/serve/beerpoly/"]
+    }, {
+      "command": "rm",
+      "args": ["-rf", "data/serve/beerpoly/*"]
+    }, {
+      "command": "cp",
+      "args": ["-r", "data/code/beerpoly/dist/*", "data/serve/beerpoly/"]
+    }]
+  }
+}
