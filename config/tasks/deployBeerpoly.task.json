@@ -14,6 +14,9 @@
     }, {
       "command": "cp",
       "args": ["-a", "data/code/beerpoly/dist/.", "data/serve/beerpoly/"]
+    }, {
+      "command": "rm",
+      "args": ["-rf", "data/serve/beerpoly/.git"]
     }]
   }
 }
