@@ -8,7 +8,7 @@
   "script": {
     "cwd": "data/code/beerpoly",
     "commands": [{
-      "command": "npm ",
+      "command": "npm",
       "args": ["install"]
     }, {
       "command": "npm",
