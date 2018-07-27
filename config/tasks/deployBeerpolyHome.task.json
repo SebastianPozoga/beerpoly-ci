@@ -13,7 +13,7 @@
       "args": ["-rf", "data/serve/beerpoly-home/*"]
     }, {
       "command": "cp",
-      "args": ["-R", "data/code/beerpoly-home/", "data/serve/beerpoly-home/"]
+      "args": ["-a", "data/code/beerpoly-home/.", "data/serve/beerpoly-home/"]
     }, {
       "command": "rm",
       "args": ["-rf", "data/serve/beerpoly-home/.git"]
